@@ -47,11 +47,13 @@ dependencies:
   google_fonts: ^4.0.1
   pusher_client: ^2.0.0
   flutter_local_notifications: ^13.0.0
-  zego_uikit_prebuilt_call: any
+  searchfield: ^0.8.0
+  
+  #zego_uikit_prebuilt_call: any
   #firebase_core_platform_interface: 4.5.1
 
 #  flutter_callkit_incoming: any
-  zego_uikit_signaling_plugin: any
+  #zego_uikit_signaling_plugin: any
   
 
 

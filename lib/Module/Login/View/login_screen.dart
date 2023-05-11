@@ -46,8 +46,8 @@ class _LoginState extends State<Login> {
                               ,validator: emptyStringValidator,
                               hintText: 'Enter Cnic',
                               labelText: 'Cnic',
-                              onFocusedBorderColor: primaryColor,
-                              onEnabledBorderColor: primaryColor),
+                              
+                              ),
 
                           SizedBox(
                             height: 20,

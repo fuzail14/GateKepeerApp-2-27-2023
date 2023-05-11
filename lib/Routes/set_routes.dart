@@ -21,6 +21,12 @@ const String eventsscreen = '/EventsScreen';
 const String noticeboardscreen = '/NoticeBoardScreen';
 const String neighbourchatscreen = '/NeighbourChatScreen';
 const String audiocallscreen = '/AudioCallScreen';
+const String vistorDetailScreen = '/VistorDetailScreen';
+const String addVistorDetailScreen = '/AddVistorDetailScreen';
+
+
+
+
 
 
 

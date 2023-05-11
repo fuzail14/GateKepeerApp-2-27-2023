@@ -1,8 +1,12 @@
 const String imageBaseUrl =
     'http://192.168.100.117:8080/mia-society-app-laravel-api/public/storage/';
 
+//const String imageBaseUrl = 'https://www.smartgate.pk/storage/';
+
 class Api {
   static const String baseUrl = 'http://192.168.2.45:8080/api/';
+  //static const String baseUrl = 'https://www.smartgate.pk/api/';
+
   static const String login = baseUrl + "login";
   static const String fcmtokenrefresh = baseUrl + "fcmtokenrefresh";
   static const String preapproventrynotifications =
@@ -21,4 +25,11 @@ class Api {
   static const String conversations = baseUrl + "conversations";
   static const String createchatroom = baseUrl + "createchatroom";
   static const String fetchchatroomusers = baseUrl + "fetchchatroomusers";
+  static const String viewvistordetail = baseUrl + "viewvistordetail";
+  static const String addvistordetail = baseUrl + "addvistordetail";
+  static const String searchResident = baseUrl + "searchResident";
+  static const String updateVistorStatus = baseUrl + "updateVistorStatus";
+
+  
+  
 }

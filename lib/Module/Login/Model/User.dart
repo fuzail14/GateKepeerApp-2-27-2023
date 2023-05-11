@@ -6,6 +6,8 @@ class User {
   final String? cnic;
   final int? roleId;
   final int? subadminid;
+  final int? societyid;
+  
   final String? roleName;
   final String? bearerToken;
   // final List<GateKeeper>? gatekeeperlist;
@@ -13,6 +15,8 @@ class User {
   User({
     this.userid,
     this.subadminid,
+    this.societyid,
+    
     this.firstName,
     this.lastName,
     this.cnic,

@@ -41,6 +41,8 @@ class LoginController extends GetxController {
         final User user = User(
             userid: data['data']['gatekeeperid'],
             subadminid: data['data']['subadminid'],
+            societyid: data['data']['societyid'],
+            
             firstName: data['data']['firstname'],
             lastName: data['data']['lastname'],
             cnic: data['data']['cnic'],

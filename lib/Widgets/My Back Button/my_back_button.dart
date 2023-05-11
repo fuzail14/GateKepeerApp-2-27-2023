@@ -9,8 +9,9 @@ import 'package:hexcolor/hexcolor.dart';
 class MyBackButton extends StatelessWidget {
   final String? text;
   final Widget? widget;
+  void Function()? onTap;
 
-  const MyBackButton({ this.text,this.widget});
+   MyBackButton({ this.text,this.widget,this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,7 @@ class MyBackButton extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {
-              Get.back();
-            },
+            onTap: onTap,
             child: Container(
 
              child:  SvgPicture.asset(

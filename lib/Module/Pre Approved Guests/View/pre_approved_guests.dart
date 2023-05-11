@@ -185,8 +185,7 @@ class PreApprovedGuests extends GetView {
                                                                               height: 30,
                                                                               labelText: "CNIC",
                                                                               hintText: 'CNIC',
-                                                                              onEnabledBorderColor: HexColor('#FF9900'),
-                                                                              onFocusedBorderColor: HexColor('#FF9900'),
+                                                                           
                                                                             ),
                                                                           ),
                                                                           SizedBox(
@@ -200,8 +199,7 @@ class PreApprovedGuests extends GetView {
                                                                               height: 30,
                                                                               labelText: "VEHICLE NO",
                                                                               hintText: 'VEHICLE NO',
-                                                                              onEnabledBorderColor: HexColor('#FF9900'),
-                                                                              onFocusedBorderColor: HexColor('#FF9900'),
+                                                                           
                                                                             ),
                                                                           ),
                                                                           SizedBox(
@@ -209,38 +207,39 @@ class PreApprovedGuests extends GetView {
                                                                                 37,
                                                                           ),
                                                                           Padding(
-                                                                            padding:  EdgeInsets.fromLTRB(50,0,0,0),
-                                                                            child: Row(
+                                                                            padding: EdgeInsets.fromLTRB(
+                                                                                50,
+                                                                                0,
+                                                                                0,
+                                                                                0),
+                                                                            child:
+                                                                                Row(
                                                                               children: [
                                                                                 GestureDetector(
-                                                                                  onTap:
-                                                                                      () {
+                                                                                  onTap: () {
                                                                                     Get.back();
                                                                                   },
-                                                                                  child:
-                                                                                      MyStatusWidget(
+                                                                                  child: MyStatusWidget(
                                                                                     width: 81,
                                                                                     height: 22,
                                                                                     status: 'Check In',
                                                                                     color: HexColor('#26B82C'),
                                                                                   ),
                                                                                 ),
-                                                                             
-                                                                             SizedBox(width: 13,),
+                                                                                SizedBox(
+                                                                                  width: 13,
+                                                                                ),
                                                                                 GestureDetector(
-                                                                                  onTap:
-                                                                                      () {
+                                                                                  onTap: () {
                                                                                     Get.back();
                                                                                   },
-                                                                                  child:
-                                                                                      MyStatusWidget(
+                                                                                  child: MyStatusWidget(
                                                                                     width: 81,
                                                                                     height: 22,
                                                                                     status: 'Cancel',
                                                                                     color: HexColor('#BABABA'),
                                                                                   ),
                                                                                 ),
-                                                                             
                                                                               ],
                                                                             ),
                                                                           ),

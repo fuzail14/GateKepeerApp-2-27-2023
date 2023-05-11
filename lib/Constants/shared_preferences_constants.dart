@@ -1,5 +1,8 @@
 const String userIdSPKey = 'userid';
 const String subAminIdSPKey = 'subadminid';
+const String societyIdSPKey = 'societyid';
+
+
 const String residentIdSPKey = 'residentid';
 const String firstNameSPKey = 'firstName';
 const String lastNameSPKey = 'lastName';

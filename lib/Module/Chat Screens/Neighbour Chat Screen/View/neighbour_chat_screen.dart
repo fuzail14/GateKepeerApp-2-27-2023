@@ -3,8 +3,8 @@ import 'package:gatekeeper/Constants/api_routes.dart';
 import 'package:get/get.dart';
 //import 'package:userapp/Constants/api_routes.dart';
 // import 'package:userapp/Constants/constants.dart';
- import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
- import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+//  import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+//  import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 
 import '../../../../Constants/constants.dart';
 import '../../../../Routes/set_routes.dart';
@@ -63,62 +63,62 @@ class NeighbourChatScreen extends GetView {
                           ],
                         ),
                       ),
-                      ZegoUIKitPrebuiltCallWithInvitation(
-                        ringtoneConfig: ZegoRingtoneConfig(),
-                        events: ZegoUIKitPrebuiltCallInvitationEvents(
-                            onIncomingCallTimeout:
-                                (String timeout, ZegoCallUser? calluser) {
-                          print(calluser!.name);
-                          print(calluser.id);
-                        }, onIncomingCallAcceptButtonPressed: () {
-                          print("Call Accepted");
-                        }),
-                        appID: 2104827868,
-                        tokenServerUrl:
-                            "wss://webliveroom2104827868-api.coolzcloud.com/ws",
-                        appSign:
-                            "0c362ea56d0f9f4a0d5114cb0c33a83989d9982d15450c866cecd91b810840b8",
-                        userID: controller.chatneighbours.id.toString(),
-                        userName:
-                            controller.chatneighbours.firstname.toString(),
-                        notifyWhenAppRunningInBackgroundOrQuit: true,
-                        // isIOSSandboxEnvironment: false,
-                        plugins: [ZegoUIKitSignalingPlugin()],
-                        child: Container(),
-                      ),
+                      // ZegoUIKitPrebuiltCallWithInvitation(
+                      //   ringtoneConfig: ZegoRingtoneConfig(),
+                      //   events: ZegoUIKitPrebuiltCallInvitationEvents(
+                      //       onIncomingCallTimeout:
+                      //           (String timeout, ZegoCallUser? calluser) {
+                      //     print(calluser!.name);
+                      //     print(calluser.id);
+                      //   }, onIncomingCallAcceptButtonPressed: () {
+                      //     print("Call Accepted");
+                      //   }),
+                      //   appID: 2104827868,
+                      //   tokenServerUrl:
+                      //       "wss://webliveroom2104827868-api.coolzcloud.com/ws",
+                      //   appSign:
+                      //       "0c362ea56d0f9f4a0d5114cb0c33a83989d9982d15450c866cecd91b810840b8",
+                      //   userID: controller.chatneighbours.id.toString(),
+                      //   userName:
+                      //       controller.chatneighbours.firstname.toString(),
+                      //   notifyWhenAppRunningInBackgroundOrQuit: true,
+                      //   // isIOSSandboxEnvironment: false,
+                      //   plugins: [ZegoUIKitSignalingPlugin()],
+                      //   child: Container(),
+                      // ),
 
-                      ZegoSendCallInvitationButton(
-                        /// For offline call notification
-                        ///
-                        resourceID: "zegouikit_call",
-                        icon: ButtonIcon(
-                            icon: Icon(
-                          Icons.video_call,
-                          color: Colors.white,
-                        )),
+                      // ZegoSendCallInvitationButton(
+                      //   /// For offline call notification
+                      //   ///
+                      //   resourceID: "zegouikit_call",
+                      //   icon: ButtonIcon(
+                      //       icon: Icon(
+                      //     Icons.video_call,
+                      //     color: Colors.white,
+                      //   )),
 
-                        isVideoCall: true,
-                        invitees: [
-                          ZegoUIKitUser(
-                              id: controller.userdata.userid.toString(),
-                              name: controller.userdata.firstName.toString()),
-                        ],
-                      ),
-                      ZegoSendCallInvitationButton(
-                        /// For offline call notification
-                        ///
-                        resourceID: "zegouikit_call",
-                        icon: ButtonIcon(
-                          icon: Icon(Icons.call, color: Colors.white),
-                        ),
+                      //   isVideoCall: true,
+                      //   invitees: [
+                      //     ZegoUIKitUser(
+                      //         id: controller.userdata.userid.toString(),
+                      //         name: controller.userdata.firstName.toString()),
+                      //   ],
+                      // ),
+                      // ZegoSendCallInvitationButton(
+                      //   /// For offline call notification
+                      //   ///
+                      //   resourceID: "zegouikit_call",
+                      //   icon: ButtonIcon(
+                      //     icon: Icon(Icons.call, color: Colors.white),
+                      //   ),
 
-                        isVideoCall: false,
-                        invitees: [
-                          ZegoUIKitUser(
-                              id: controller.userdata.userid.toString(),
-                              name: controller.userdata.firstName.toString()),
-                        ],
-                      ),
+                      //   isVideoCall: false,
+                      //   invitees: [
+                      //     ZegoUIKitUser(
+                      //         id: controller.userdata.userid.toString(),
+                      //         name: controller.userdata.firstName.toString()),
+                      //   ],
+                      // ),
 
                       GestureDetector(onTap: () {
                       

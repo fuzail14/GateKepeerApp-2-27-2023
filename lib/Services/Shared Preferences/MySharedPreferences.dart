@@ -11,6 +11,8 @@ class MySharedPreferences {
     await SharedPreferences.getInstance().then((value) {
       value.setInt(userIdSPKey, user.userid ?? 0);
       value.setInt(subAminIdSPKey, user.subadminid ?? 0);
+      value.setInt(societyIdSPKey, user.societyid ?? 0);
+
       value.setString(firstNameSPKey, user.firstName ?? '');
       value.setString(lastNameSPKey, user.lastName ?? '');
       value.setString(bearerTokenSPKey, user.bearerToken ?? '');
@@ -23,9 +25,10 @@ class MySharedPreferences {
   static Future<User> getUserData() async {
     User _user = User();
     await SharedPreferences.getInstance().then((value) {
-
       value.getInt(userIdSPKey) ?? value.setInt(userIdSPKey, 0);
       value.getInt(subAminIdSPKey) ?? value.setInt(subAminIdSPKey, 0);
+      value.getInt(societyIdSPKey) ?? value.setInt(societyIdSPKey, 0);
+
       value.getString(firstNameSPKey) ?? value.setString(firstNameSPKey, '');
       value.getString(lastNameSPKey) ?? value.setString(lastNameSPKey, '');
       value.getString(bearerTokenSPKey) ??
@@ -39,6 +42,7 @@ class MySharedPreferences {
       _user = User(
           userid: value.getInt(userIdSPKey),
           subadminid: value.getInt(subAminIdSPKey),
+          societyid: value.getInt(societyIdSPKey),
           firstName: value.getString(firstNameSPKey),
           lastName: value.getString(lastNameSPKey),
           bearerToken: value.getString(bearerTokenSPKey),
@@ -50,7 +54,6 @@ class MySharedPreferences {
     return _user;
   }
 
-
   static deleteUserData() async {
     User _user = User();
 
@@ -58,14 +61,11 @@ class MySharedPreferences {
       // value.remove(userIdSPKey);
       // value.remove(firstNameSPKey);
       // value.remove(lastNameSPKey);
-  final success=    value.remove(bearerTokenSPKey);
-  print(success.then((value) => value));
+      final success = value.remove(bearerTokenSPKey);
+      print(success.then((value) => value));
       // value.remove(cnicSPKey);
       // value.remove(roleNameSPKey);
       // value.remove(roleIdSPKey);
-
     });
   }
-
-
 }

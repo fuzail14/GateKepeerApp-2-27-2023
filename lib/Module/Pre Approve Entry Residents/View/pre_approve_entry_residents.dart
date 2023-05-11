@@ -25,6 +25,7 @@ class PreApproveEntryResidents extends StatelessWidget {
                         controller.userdata.bearerToken!),
                     builder: (BuildContext context, AsyncSnapshot snapshot) {
                       if (snapshot.hasData) {
+                        
                         return Column(
                           children: [
                             MyBackButton(
@@ -33,6 +34,8 @@ class PreApproveEntryResidents extends StatelessWidget {
                             Expanded(
                               child: ListView.builder(
                                   itemBuilder: (context, index) {
+                                    print(snapshot.data.data[index].firstname.toString());
+                        
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: GestureDetector(
