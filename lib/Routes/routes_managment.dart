@@ -16,7 +16,7 @@ import '../Module/Chat Availbility/View/chat_availbility_screen.dart';
 import '../Module/Events/View/events_screen.dart';
 import '../Module/GateKeeper Attendence/View/gate_keeper_attendence.dart';
 import '../Module/HomeScreen/View/home_screen.dart';
-import '../Module/Market Place/View/market_place_screen.dart';
+
 import '../Module/NoticeBoard/View/notice_board_screen.dart';
 import '../Module/Pre Approve Entry Notifications/View/pre_approve_entry_notification.dart';
 import '../Module/Pre Approved Guests/View/pre_approved_guests.dart';

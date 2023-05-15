@@ -182,8 +182,7 @@ class PreApprovedGuests extends GetView {
                                                                             height: 30,
                                                                             labelText: "CNIC",
                                                                             hintText: 'CNIC',
-                                                                            onEnabledBorderColor: HexColor('#FF9900'),
-                                                                            onFocusedBorderColor: HexColor('#FF9900'),
+                                                                            
                                                                           ),
                                                                         ),
                                                                         SizedBox(
@@ -198,8 +197,8 @@ class PreApprovedGuests extends GetView {
                                                                             height: 30,
                                                                             labelText: "VEHICLE NO",
                                                                             hintText: 'VEHICLE NO',
-                                                                            onEnabledBorderColor: HexColor('#FF9900'),
-                                                                            onFocusedBorderColor: HexColor('#FF9900'),
+                                                                            
+
                                                                           ),
                                                                         ),
                                                                         SizedBox(

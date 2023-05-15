@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatekeeper/Constants/api_routes.dart';
 import 'package:gatekeeper/Routes/set_routes.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -6,6 +7,7 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../Constants/api_routes.dart';
+
 import '../../../Constants/constants.dart';
 import '../../../Widgets/My Back Button/my_back_button.dart';
 import '../../../Widgets/My Button/my_button.dart';
@@ -83,7 +85,7 @@ class PreApproveEntryResidents extends StatelessWidget {
                                                         decoration: BoxDecoration(
                                                             image: DecorationImage(
                                                                 image: NetworkImage(
-                                                                   Api. imageBaseUrl+    snapshot
+                                                                   imageBaseUrl+ snapshot
                                                                         .data.data![
                                                                     index]
                                                                         .image

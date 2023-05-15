@@ -15,7 +15,7 @@ import '../Module/Events/View/events_screen.dart';
 import '../Module/GateKeeper Attendence/View/gate_keeper_attendence.dart';
 import '../Module/HomeScreen/View/home_screen.dart';
 import '../Module/Login/View/login_screen.dart';
-import '../Module/Market Place/View/market_place_screen.dart';
+
 import '../Module/NoticeBoard/View/notice_board_screen.dart';
 import '../Module/Pre Approve Entry Notifications/View/pre_approve_entry_notification.dart';
 
@@ -51,9 +51,6 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => NeighbourChatScreen());
     Get.lazyPut(() => AudioCallScreen());
     Get.lazyPut(() => VistorDetailScreen());
-
     Get.lazyPut(() => AddVistorDetailScreen());
-
-    
   }
 }

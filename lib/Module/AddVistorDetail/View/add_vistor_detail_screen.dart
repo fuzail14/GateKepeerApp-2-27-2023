@@ -81,7 +81,7 @@ class AddVistorDetailScreen extends GetView {
                                   controller: controller.nameController,
                                   validator: emptyStringValidator,
                                   labelText: 'Enter Name',
-                                  hintText: 'Name',
+                                  hintText: 'Name', 
                                 ),
                                 MyTextFormField(
                                   controller: controller.cnicController,

@@ -23,6 +23,7 @@ class MyTextFormField extends GetView {
   final Color? hintTextColor;
   final Color? fillColor;
   final TextInputType? textInputType;
+  
 
 
   final String? Function(String?)? validator;
@@ -49,7 +50,7 @@ class MyTextFormField extends GetView {
       required this.hintText,
       this.labelTextColor,
       required this.labelText,
-      this.hintTextColor,
+      this.hintTextColor
 
       });
 
