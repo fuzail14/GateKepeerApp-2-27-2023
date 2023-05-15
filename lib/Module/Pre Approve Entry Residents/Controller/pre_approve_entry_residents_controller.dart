@@ -35,9 +35,6 @@ class PreApproveEntryResdientsController extends GetxController{
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {
-      print(response.body);
-      print(response.statusCode);
-      
       return PreApproveEntry.fromJson(data);
     }
     return PreApproveEntry.fromJson(data);

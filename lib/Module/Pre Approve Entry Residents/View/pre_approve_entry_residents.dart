@@ -19,265 +19,226 @@ class PreApproveEntryResidents extends StatelessWidget {
         builder: (controller) {
           return SafeArea(
             child: Scaffold(
-                body: FutureBuilder(
-                    future: controller.preApproveEntryResidentApi(
-                        controller.userdata.userid!,
-                        controller.userdata.bearerToken!),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        
-                        return Column(
-                          children: [
-                            MyBackButton(
-                              text: 'Residents',
-                            ),
-                            Expanded(
-                              child: ListView.builder(
+                body: Column(
+                  children: [
+                    MyBackButton(
+                      text: 'Residents',
+                    ),
+                    Expanded(
+                      child: FutureBuilder(
+                          future: controller.preApproveEntryResidentApi(
+                              controller.userdata.userid!,
+                              controller.userdata.bearerToken!),
+                          builder: (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasData) {
+                              return ListView.builder(
                                   itemBuilder: (context, index) {
-                                    print(snapshot.data.data[index].firstname.toString());
-                        
-                                    return Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: GestureDetector(
-                                        onTap: (){
-                                           Get.toNamed(preApprovedGuests, arguments: [
-                                      snapshot.data.data[index],
-                                      controller.userdata.bearerToken!
+                                    return GestureDetector(
+                                      onTap: (){
+                                         Get.toNamed(preApprovedGuests, arguments: [
+                                    snapshot.data.data[index],
+                                    controller.userdata.bearerToken!
                                     ]);
-                                        },
-                                        child: SizedBox(
-                                          width: 400,
-                                          child: Card(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(18.0),
+                                      },
+                                      child:  Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            24,16,24,0),
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            // image: DecorationImage(
+                                            //   image: AssetImage(
+                                            //     'assets/cardbackground.jpeg',
+                                            //   ),
+                                            //   fit: BoxFit.cover,
+                                            // ),
+                                            borderRadius:
+                                            BorderRadius.circular(17),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Color.fromARGB(
+                                                    189, 224, 224, 223),
+                                                spreadRadius: 5,
+
+                                                blurRadius: 9,
+                                                offset: Offset(0,
+                                                    3), // changes position of shadow
                                               ),
-                                              child: Container(
-                                                width: 400,
-                                                // color: Colors.red,
-                                                child: Stack(
+                                            ],
+                                            color: HexColor('#FFFFFF'),
+                                          ),
+                                          height: 120,
+                                          child: Column(
+                                              crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(
-                                                              12.0),
+                                                      const EdgeInsets.only(
+                                                          top: 14, left: 8),
                                                       child: Container(
-                                                        width:
-                                                            MediaQuery.of(context)
-                                                                    .size
-                                                                    .width *
-                                                                0.2,
-                                                        height:
-                                                            MediaQuery.of(context)
-                                                                    .size
-                                                                    .height *
-                                                                0.1,
+                                                        width: 70.4,
+                                                        height: 64,
                                                         decoration: BoxDecoration(
-                                                            color: Colors.red,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(8),
                                                             image: DecorationImage(
-                                                                fit: BoxFit.cover,
-                                                                image: AssetImage(
-                                                                  'assets/k.webp'
-                                                                    // imageBaseUrl +
-                                                                    //     snapshot
-                                                                    //         .data!
-                                                                    //         .data[
-                                                                    //             index]
-                                                                    //         .image
-                                                                    //         .toString()
-                                                                            
-                                                                            ),
-                                                                            )),
+                                                                image: NetworkImage(
+                                                                   Api. imageBaseUrl+    snapshot
+                                                                        .data.data![
+                                                                    index]
+                                                                        .image
+                                                                        .toString()),
+                                                                fit: BoxFit
+                                                                    .cover),
+                                                            borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                7)),
                                                       ),
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.26,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.03,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.03,
-                                                              0),
+                                                      const EdgeInsets.only(
+                                                          left: 18),
                                                       child: Column(
+                                                        crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
                                                         children: [
                                                           Text(
                                                             snapshot
-                                                                    .data!
-                                                                    .data[index]
-                                                                    .firstname
-                                                                    .toString() +
-                                                                ' ' +
+                                                                .data.data![
+                                                            index]
+                                                                .firstname
+                                                                .toString() +
+                                                                " " +
                                                                 snapshot
-                                                                    .data!
-                                                                    .data[index]
+                                                                    .data.data![
+                                                                index]
                                                                     .lastname
                                                                     .toString(),
-                                                            maxLines: 1,
-                                                            style: GoogleFonts.ubuntu(
-                                                                color: HexColor(
-                                                                    '#404345'),
+                                                            style: TextStyle(
                                                                 fontStyle:
-                                                                    FontStyle
-                                                                        .normal,
-                                                                letterSpacing:
-                                                                    0.0015,
+                                                                FontStyle
+                                                                    .normal,
+                                                                fontWeight:
+                                                                FontWeight
+                                                                    .w500,
                                                                 fontSize: 16,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.26,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.12,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0,
-                                                              0),
-                                                      child: Row(
-                                                        children: [
-                                                          Text(
-                                                            'CNIC: ',
-                                                            maxLines: 2,
-                                                            overflow: TextOverflow
-                                                                .ellipsis,
-                                                            style: GoogleFonts.ubuntu(
                                                                 color: HexColor(
-                                                                    '#AAAAAA'),
-                                                                fontStyle:
-                                                                    FontStyle
-                                                                        .normal,
-                                                                letterSpacing:
-                                                                    0.0015,
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
+                                                                    '#404345')),
+                                                          ),
+                                                          Text.rich(
+                                                              TextSpan(children: [
+                                                                TextSpan(
+                                                                  text: 'CNIC:',style: TextStyle(
+                                                                  color: HexColor('#1A1A1A'),
+                                                                  overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+
+                                                                  fontStyle:
+                                                                  FontStyle
+                                                                      .normal,
+                                                                  fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                                  fontSize: 12,
+                                                                ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text: snapshot
+                                                                      .data.data![index]
+                                                                      .cnic
+                                                                      .toString(),style: TextStyle(
+                                                                  overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+
+                                                                  fontStyle:
+                                                                  FontStyle
+                                                                      .normal,
+                                                                  fontWeight:
+                                                                  FontWeight
+                                                                      .w200,
+                                                                  fontSize: 12,
+                                                                ),
+                                                                ),
+
+                                                              ])
                                                           ),
 
-                                                          Text(
-                                                           snapshot.data.data[index].cnic,
-                                                            maxLines: 2,
-                                                            overflow: TextOverflow
-                                                                .ellipsis,
-                                                            style: GoogleFonts.ubuntu(
-                                                                color: HexColor(
-                                                                    '#AAAAAA'),
+                                                          Text.rich(
+                                                            TextSpan(children: [
+                                                              TextSpan(
+                                                                text: 'Mobile No:',style: TextStyle(
+                                                                color: HexColor('#1A1A1A'),
+
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+
                                                                 fontStyle:
-                                                                    FontStyle
-                                                                        .normal,
-                                                                letterSpacing:
-                                                                    0.0015,
-                                                                fontSize: 12,
+                                                                FontStyle
+                                                                    .normal,
                                                                 fontWeight:
-                                                                    FontWeight
-                                                                        .w500),
-                                                          ),
-                                                          
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsets.fromLTRB(
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.26,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0.17,
-                                                              MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .width *
-                                                                  0,
-                                                              0),
-                                                      child: Row(
-                                                        children: [
-                                                          Text(
-                                                            "Contact No: ",
-                                                            style: GoogleFonts.ubuntu(
-                                                                color: HexColor(
-                                                                    '#AAAAAA'),
+                                                                FontWeight
+                                                                    .w400,
+                                                                fontSize: 12,
+                                                              ),
+                                                              ),
+                                                              TextSpan(
+                                                                text: snapshot
+                                                                  .data.data![index]
+                                                                  .cnic
+                                                                  .toString(),style: TextStyle(
+                                                                overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+
                                                                 fontStyle:
-                                                                    FontStyle
-                                                                        .normal,
-                                                                letterSpacing:
-                                                                    0.0015,
-                                                                fontSize: 12,
+                                                                FontStyle
+                                                                    .normal,
                                                                 fontWeight:
-                                                                    FontWeight
-                                                                        .w400),
-                                                          ),
-                                                          Text(
-                                                        snapshot.data.data[index].mobileno,
-                                                            style: GoogleFonts.ubuntu(
-                                                                color: HexColor(
-                                                                    '#AAAAAA'),
-                                                                fontStyle:
-                                                                    FontStyle
-                                                                        .normal,
-                                                                letterSpacing:
-                                                                    0.0015,
+                                                                FontWeight
+                                                                    .w200,
                                                                 fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400),
+                                                              ),
+                                                              ),
+
+                                                            ])
                                                           ),
-                                                          
+
                                                         ],
                                                       ),
                                                     ),
                                                   ],
                                                 ),
-                                              )),
+
+                                              ]),
                                         ),
-                                      ),
+                                      )
+
                                     );
                                   },
-                                  itemCount: snapshot.data.data.length),
-                            ),
-                          ],
-                        );
-                     
-                      } else if (snapshot.hasError) {
-                        return Icon(Icons.error_outline);
-                      } else {
-                        return CircularProgressIndicator();
-                      }
-                    })),
+                                  itemCount: snapshot.data.data.length);
+
+                            } else if (snapshot.hasError) {
+                              return Icon(Icons.error_outline);
+                            } else {
+                              return
+                                Center(
+                                  child: Column(
+                                    children: [
+                                      CircularProgressIndicator(color: primaryColor,),
+                                    ],
+                                  ),
+                                );
+                            }
+                          }),
+                    ),
+                  ],
+                )),
           );
         });
   }

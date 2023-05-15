@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as Http;
 
@@ -7,6 +8,9 @@ import '../../../Constants/api_routes.dart';
 import '../../Pre Approve Entry Notifications/Model/PreApproveEntry.dart';
 class PreApproveEntries extends GetxController
 {
+
+  final cnicController = TextEditingController();
+  final vechilenoController = TextEditingController();
   late final PreApproveEntry preApproveEntry;
   var data=Get.arguments[0];
   var token=Get.arguments[1];
@@ -49,6 +53,8 @@ class PreApproveEntries extends GetxController
     required String token,
     required int status,
     required String statusdescription,
+    required String cnic,
+    required String vechileno,
   }) async {
     print(id);
     print(token);
@@ -62,7 +68,9 @@ class PreApproveEntries extends GetxController
       body: jsonEncode(<String, dynamic>{
         "id": id,
         "status": status,
-        "statusdescription": statusdescription
+        "statusdescription": statusdescription,
+        "cnic": cnic,
+        "vechileno": vechileno,
       }),
     );
 
@@ -70,7 +78,7 @@ class PreApproveEntries extends GetxController
       var data = jsonDecode(response.body);
       print(data);
       print(response.statusCode);
-
+Get.back();
       // preApproveEntriesApi(data.userid,token);
       // preApproveEntryNotificationApi(userdata.userid!, userdata.bearerToken!);
       update();
@@ -82,6 +90,48 @@ class PreApproveEntries extends GetxController
     }
   }
 
+
+
+
+  Future updatePreapproveEntryCheckoutStatusApi({
+    required int id,
+    required String token,
+    required int status,
+    required String statusdescription,
+
+  }) async {
+    print(id);
+    print(token);
+
+    final response = await Http.post(
+      Uri.parse(Api.updatepreapproveentrycheckoutstatus),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': "Bearer $token"
+      },
+      body: jsonEncode(<String, dynamic>{
+        "id": id,
+        "status": status,
+        "statusdescription": statusdescription,
+
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      print(data);
+      print(response.statusCode);
+      // Get.back();
+      // preApproveEntriesApi(data.userid,token);
+      // preApproveEntryNotificationApi(userdata.userid!, userdata.bearerToken!);
+      update();
+      // Get.offAndToNamed(viewSociety, arguments: user);
+      //
+      Get.snackbar("Status Update Successfully", "");
+    } else {
+      Get.snackbar("Failed to Update status", "");
+    }
+  }
 
 
 

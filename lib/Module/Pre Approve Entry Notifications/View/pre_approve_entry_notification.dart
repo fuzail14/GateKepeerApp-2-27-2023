@@ -17,19 +17,20 @@ class PreApproveEntryNotification extends GetView {
         builder: (controller) {
           return SafeArea(
             child: Scaffold(
-                body: FutureBuilder(
-                    future: controller.preApproveEntryNotificationApi(
-                        controller.userdata.userid!,
-                        controller.userdata.bearerToken!),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.hasData) {
-                        return Column(
-                          children: [
-                            MyBackButton(
-                              text: 'Notification',
-                            ),
-                            Expanded(
-                              child: ListView.builder(
+                body: Column(
+
+                  children: [
+                    MyBackButton(
+                      text: 'Notification',
+                    ),
+                    Expanded(
+                      child: FutureBuilder(
+                          future: controller.preApproveEntryNotificationApi(
+                              controller.userdata.userid!,
+                              controller.userdata.bearerToken!),
+                          builder: (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasData) {
+                              return ListView.builder(
                                   itemBuilder: (context, index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -174,8 +175,7 @@ class PreApproveEntryNotification extends GetView {
                                                             270, 40, 0, 0),
                                                     child: MyButton(
                                                       border: 3,
-                                                      backgroundcolor:
-                                                          HexColor('#4EC018'),
+
                                                       name: 'Approved',
                                                       color: primaryColor,
                                                       height: 22,
@@ -206,16 +206,22 @@ class PreApproveEntryNotification extends GetView {
                                       ),
                                     );
                                   },
-                                  itemCount: snapshot.data.data.length),
-                            ),
-                          ],
-                        );
-                      } else if (snapshot.hasError) {
-                        return Icon(Icons.error_outline);
-                      } else {
-                        return CircularProgressIndicator();
-                      }
-                    })),
+                                  itemCount: snapshot.data.data.length);
+                            } else if (snapshot.hasError) {
+                              return Icon(Icons.error_outline);
+                            } else {
+                              return Center(
+                                child: Column(
+                                  children: [
+                                    CircularProgressIndicator(color: primaryColor,),
+                                  ],
+                                ),
+                              );
+                            }
+                          }),
+                    ),
+                  ],
+                )),
           );
         });
   }
