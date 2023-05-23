@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:gatekeeper/Routes/set_routes.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class LoginController extends GetxController {
 
   TextEditingController userCnicController = TextEditingController();
   TextEditingController userPasswordController = TextEditingController();
+  
 
   Future loginApi(String cnic, String password) async {
     print("Login Api  Functions Hits ! ");
@@ -42,7 +44,6 @@ class LoginController extends GetxController {
             userid: data['data']['gatekeeperid'],
             subadminid: data['data']['subadminid'],
             societyid: data['data']['societyid'],
-            
             firstName: data['data']['firstname'],
             lastName: data['data']['lastname'],
             cnic: data['data']['cnic'],
@@ -52,6 +53,15 @@ class LoginController extends GetxController {
 
         MySharedPreferences.setUserData(user: user);
         print(user.userid);
+
+        FirebaseMessaging.instance.getToken().then((value) {
+          String? token = value;
+          print('Fire Base token');
+          print('--------');
+          print(token);
+          fcmtokenrefresh(user.userid!, token!, user.bearerToken!);
+        });
+    
 
         print(response.statusCode);
         print(response.statusCode);
@@ -93,5 +103,31 @@ class LoginController extends GetxController {
   void togglePasswordView() {
     isHidden = !isHidden;
     update();
+  }
+
+  Future fcmtokenrefresh(int id, String fcmtoken, String bearertoken) async {
+    print("Fcm token refresh Api   Hits ! ");
+
+    try {
+      final response = await Http.post(
+        Uri.parse(Api.fcmtokenrefresh),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': "Bearer $bearertoken"
+        },
+        body: jsonEncode(<String, dynamic>{
+          'id': id,
+          'fcmtoken': fcmtoken,
+        }),
+      );
+      print("Fcm token refresh Api Hits Successfully !");
+      print(response.statusCode);
+      print(response.body);
+      var data = jsonDecode(response.body);
+
+      print(data);
+    } catch (SocketException) {
+      Get.snackbar('Error Message', 'No Internet Connection');
+    }
   }
 }
