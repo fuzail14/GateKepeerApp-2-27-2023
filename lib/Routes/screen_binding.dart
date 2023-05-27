@@ -21,6 +21,7 @@ import '../Module/Pre Approve Entry Notifications/View/pre_approve_entry_notific
 
 import '../Module/Pre Approved Guests/View/pre_approved_guests.dart';
 import '../Module/ReportToAdmin/View/report_to_admin_screen.dart';
+import '../Module/Residental Emergency/View/residential_emergency_screen.dart';
 import '../Module/Service Provider Check Out/View/service_provider_check_out.dart';
 import '../Module/Vistor Detail/View/vistor_detail_screen.dart';
 import '../Splash/View/splash_screen.dart';
@@ -52,5 +53,8 @@ class ScreenBindings extends Bindings {
     Get.lazyPut(() => AudioCallScreen());
     Get.lazyPut(() => VistorDetailScreen());
     Get.lazyPut(() => AddVistorDetailScreen());
+    Get.lazyPut(() => ResidentialEmergencyScreen());
+
+    
   }
 }

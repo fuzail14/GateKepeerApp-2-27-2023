@@ -674,7 +674,6 @@ class HomeScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            
                             Get.offNamed(vistorDetailScreen,
                                 arguments: controller.user);
                           },
@@ -731,6 +730,75 @@ class HomeScreen extends StatelessWidget {
                                             child: SvgPicture.asset(
                                                 'assets/greaterthan.svg'),
                                           )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Get.offNamed(residentialEmergencyScreen,
+                                arguments: controller.user);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: SizedBox(
+                              height: 64,
+                              width: 324,
+                              child: Container(
+                                decoration:
+                                    BoxDecoration(color: HexColor('#FAFAFA')),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 30, top: 10),
+                                      child: Row(
+                                        children: [
+                                          CircleAvatar(
+                                              maxRadius: 20,
+                                              backgroundColor: Color.fromRGBO(
+                                                  255, 153, 0, 0.35),
+                                              child: Image.asset(
+                                                  'assets/noticeboard.png')),
+                                          SizedBox(
+                                            width: 12,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Residential Emergency',
+                                                style: GoogleFonts.ubuntu(
+                                                    fontStyle: FontStyle.normal,
+                                                    fontWeight: FontWeight.w700,
+                                                    fontSize: 13,
+                                                    color: HexColor('#666592')),
+                                              ),
+                                              Text(
+                                                'Residential Emergency',
+                                                style: GoogleFonts.ubuntu(
+                                                    fontStyle: FontStyle.normal,
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10,
+                                                    color: HexColor('#AAA9C9')),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            width: 60,
+                                          ),
+                                          SvgPicture.asset(
+                                              'assets/greaterthan.svg')
                                         ],
                                       ),
                                     ),

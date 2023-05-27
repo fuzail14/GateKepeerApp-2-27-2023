@@ -26,3 +26,5 @@ const String neighbourchatscreen = '/NeighbourChatScreen';
 const String audiocallscreen = '/AudioCallScreen';
 const String vistorDetailScreen = '/VistorDetailScreen';
 const String addVistorDetailScreen = '/AddVistorDetailScreen';
+const String residentialEmergencyScreen = '/ResidentialEmergencyScreen';
+

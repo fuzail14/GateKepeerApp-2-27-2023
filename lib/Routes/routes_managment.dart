@@ -20,6 +20,7 @@ import '../Module/HomeScreen/View/home_screen.dart';
 import '../Module/NoticeBoard/View/notice_board_screen.dart';
 import '../Module/Pre Approve Entry Notifications/View/pre_approve_entry_notification.dart';
 import '../Module/Pre Approved Guests/View/pre_approved_guests.dart';
+import '../Module/Residental Emergency/View/residential_emergency_screen.dart';
 import '../Module/Service Provider Check Out/View/service_provider_check_out.dart';
 import '../Module/Vistor Detail/View/vistor_detail_screen.dart';
 import '../Splash/View/splash_screen.dart';
@@ -143,6 +144,14 @@ class RouteManagement {
           page: () => AddVistorDetailScreen(),
           binding: ScreenBindings(),
           transition: Transition.noTransition),
+          GetPage(
+          name: residentialEmergencyScreen,
+          page: () => ResidentialEmergencyScreen(),
+          binding: ScreenBindings(),
+          transition: Transition.noTransition),
+          
+
+          
    
     ];
   }

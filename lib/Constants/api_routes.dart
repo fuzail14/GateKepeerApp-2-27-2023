@@ -9,12 +9,16 @@ class Api {
 
   static const String login = baseUrl + "login";
   static const String fcmtokenrefresh = baseUrl + "fcmtokenrefresh";
-  static const String preapproventrynotifications = baseUrl + "preapproventrynotifications";
-  static const String preapproveentryresidents = baseUrl + "preapproveentryresidents";
-  static const String updatepreapproveentrystatus = baseUrl + "updatepreapproveentrystatus";
-  static const String updatepreapproveentrycheckoutstatus = baseUrl + "updatepreapproveentrycheckoutstatus";
+  static const String preapproventrynotifications =
+      baseUrl + "preapproventrynotifications";
+  static const String preapproveentryresidents =
+      baseUrl + "preapproveentryresidents";
+  static const String updatepreapproveentrystatus =
+      baseUrl + "updatepreapproveentrystatus";
+  static const String updatepreapproveentrycheckoutstatus =
+      baseUrl + "updatepreapproveentrycheckoutstatus";
   static const String preapproveentries = baseUrl + "preapproveentries";
-  
+
   static const String viewallnoticesapi = baseUrl + "viewallnotices";
   static const String viewevent = baseUrl + "event/events";
   static const String chatgatekeepers = baseUrl + "chatgatekeepers";
@@ -28,7 +32,5 @@ class Api {
   static const String addvistordetail = baseUrl + "addvistordetail";
   static const String searchResident = baseUrl + "searchResident";
   static const String updateVistorStatus = baseUrl + "updateVistorStatus";
-
-  
-  
+  static const String viewEmergency = baseUrl + "viewEmergency";
 }
